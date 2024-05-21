@@ -23,7 +23,32 @@ my_theme <- create_theme(
 
 shinyUI(
   dashboardPage(
-  dashboardHeader(title = "NBA"),
+  dashboardHeader(title = "NBA",
+                  dropdownMenu(type = "messages",
+                               messageItem(
+                                 from = "New User",
+                                 message = "How do I register?",
+                                 icon = icon("question"),
+                                 time = "13:45"
+                               ),
+                               messageItem(
+                                 from = "Support",
+                                 message = "The new server is ready.",
+                                 icon = icon("life-ring")
+                               )
+                  ),
+                  dropdownMenu(type = "notifications",
+                               notificationItem(
+                                 text = "5 new users today",
+                                 icon("users")
+                               ),
+                               notificationItem(
+                                 text = "Server load at 86%",
+                                 icon = icon("exclamation-triangle"),
+                                 status = "warning"
+                               )
+                  )
+                  ),
   dashboardSidebar(
     sidebarMenu(
       menuItem(HTML('<i class="fas fa-home"></i> Home'), tabName = "home"),
@@ -52,7 +77,7 @@ shinyUI(
       tabItem(tabName = "qa",
               h2("Questions and Answers"),
               div(
-                style = "margin-bottom: 20px;",  # Dodaj trochę miejsca między pytaniami
+                style = "margin-bottom: 20px;", 
                 actionButton("q1", "What is this application about?"),
                 hidden(
                   div(id = "a1",
@@ -62,7 +87,7 @@ shinyUI(
               ),
               div(
                 style = "margin-bottom: 20px;",
-                actionButton("q2", "What kind of information can I get from this app?"),
+                actionButton("q2", "What kind of information I can get from this app?"),
                 hidden(
                   div(id = "a2",
                       p("You can get information about NBA teams, player statistics, historical data, and more.")
