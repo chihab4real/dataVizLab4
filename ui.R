@@ -2,6 +2,23 @@ library(shiny)
 library(shinydashboard)
 library(fresh)
 
+my_theme <- create_theme(
+  adminlte_color(
+    light_blue = "#C8102E"  
+  ),
+  adminlte_sidebar(
+    dark_bg = "#1D428A",    
+    dark_hover_bg = "#1B3770", 
+    dark_color = "#ffffff" 
+  ),
+  adminlte_global(
+    content_bg = "#f4f6f9", 
+    box_bg = "#ffffff",    
+    info_box_bg = "#f0f0f5" 
+  )
+)
+
+
 shinyUI(
   dashboardPage(
     dashboardHeader(title = "NBA"),
@@ -13,6 +30,7 @@ shinyUI(
         menuItem(HTML('<i class="fas fa-basketball-ball"></i> Players'), tabName = "players")      
     )),
     dashboardBody(
+      use_theme(my_theme),
       tabItems(
         tabItem(tabName = "home", 
                 h1("Home dashboard")
