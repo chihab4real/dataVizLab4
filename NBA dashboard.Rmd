@@ -7,4 +7,27 @@ output: html_document
 runtime: shiny
 ---
 
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Dashboard Pages {.tabset .tabset-fade .tabset-pills}
+
+<hr>
+
+### Home
+<hr>
+
+### Teams
+<hr>
+### Players
+<hr>
+### Games
+<hr>
+### Awards
+<hr>
+### History
+<hr>
+
+
 
