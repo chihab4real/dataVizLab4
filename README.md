@@ -1,7 +1,7 @@
 # dataVizLab4
 
 ### Team members:
-- Wiktoria Szarzyńska
+- Wiktoria Szarzyńska 156058
 - ChibabEddine Zitouni 158763
 
 ### Dataset [NBA dataset](https://www.kaggle.com/datasets/wyattowalsh/basketball?resource=download)
