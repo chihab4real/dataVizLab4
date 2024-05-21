@@ -1,0 +1,10 @@
+---
+title: "NBA dashboard"
+author:
+- Wiktoria Szarzyńska 156058
+- ChibabEddine Zitouni 158763
+output: html_document
+runtime: shiny
+---
+
+
