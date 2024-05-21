@@ -1,6 +1,7 @@
 library(shiny)
 library(shinydashboard)
 library(fresh)
+library(htmltools)
 library(shinyjs)
 
 # my own theme using fresh
@@ -23,7 +24,11 @@ my_theme <- create_theme(
 
 shinyUI(
   dashboardPage(
-  dashboardHeader(title = "NBA",
+  dashboardHeader(
+    title = div("NBA",
+      tags$img(src = "nba_logo.png", height = "50px", height=50)
+      
+    ),
                   dropdownMenu(type = "messages",
                                messageItem(
                                  from = "New User",
