@@ -102,9 +102,27 @@ shinyUI(
                          DT::dataTableOutput("team")
                   ),
                   column(width = 4,
-                         tags$div(
-                           style = "display: flex; justify-content: center; align-items: center; height: 100%;",
-                           tags$img(src = "basketball_player.png", style = "max-width: 100%; height: auto;")
+                         valueBox(
+                           nrow(team), 
+                           "Total Teams", 
+                           icon = icon("users"), 
+                           color = "orange"
+                         )
+                  ),
+                  column(width = 4,
+                         valueBox(
+                           "'46", 
+                           "Oldest Team", 
+                           icon = icon("users"), 
+                           color = "orange"
+                         )
+                  ),
+                  column(width = 4,
+                         valueBox(
+                           "MB", 
+                           "Best Teams", 
+                           icon = icon("users"), 
+                           color = "orange"
                          )
                   )
                 )
