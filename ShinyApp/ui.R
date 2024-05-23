@@ -102,27 +102,27 @@ shinyUI(
                          DT::dataTableOutput("team")
                   ),
                   column(width = 4,
-                         tags$div(
-                           style = "display: flex; justify-content: center; align-items: center; height: 100%;",
-                           tags$img(src = "basketball_player.png", style = "max-width: 100%; height: auto;")
+                         valueBox(
+                           nrow(team), 
+                           "Total Teams", 
+                           icon = icon("users"), 
+                           color = "orange"
                          )
-                  )
-                )
-        ),
-        tabItem(tabName = "players",
-                h1("Players dashboard")
-        ),
-        tabItem(tabName = "qa",
-                h1("FQA"),
-                h4("Questions you asked most recently:"),
-                div(
-                  style = "margin-bottom: 20px;", 
-                  actionButton("q1", "What is this application about?"),
-                  hidden(
-                    div(id = "a1",
-                        p("This application provides various information about NBA teams and players, including historical data and player statistics.")
-                    )
-                  )
+                  ),
+                  column(width = 4,
+                         valueBox(
+                           "'46", 
+                           "Oldest Team", 
+                           icon = icon("users"), 
+                           color = "orange"
+                         )
+                  ),
+                  column(width = 4,
+                         valueBox(
+                           "MB", 
+                           "Best Teams", 
+                           icon = icon("users"), 
+                           color = "orange")
                 ),
                 div(
                   style = "margin-bottom: 20px;",
@@ -154,5 +154,6 @@ shinyUI(
         )
       )
     )
+  )
   )
 )
