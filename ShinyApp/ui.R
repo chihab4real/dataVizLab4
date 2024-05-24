@@ -98,31 +98,26 @@ shinyUI(
                 h4("Choose your favourite team and get to know it better"),
                 fluidRow(
                   theme = shinytheme("cyborg"),
-                  column(width = 8,
+                  column(width = 12, class = "col-custom",
                          DT::dataTableOutput("team")
-                  ),
-                  column(width = 4,
-                         valueBox(
-                           nrow(team), 
-                           "Total Teams", 
-                           icon = icon("users"), 
-                           color = "orange"
-                         )
-                  ),
-                  column(width = 4,
-                         valueBox(
-                           "'46", 
-                           "Oldest Team", 
-                           icon = icon("users"), 
-                           color = "orange"
-                         )
-                  ),
-                  column(width = 4,
-                         valueBox(
-                           "MB", 
-                           "Best Teams", 
-                           icon = icon("users"), 
-                           color = "orange")
+                  )
+
+                )
+        ),
+        tabItem(tabName = "players",
+                h1("Players dashboard")
+        ),
+        tabItem(tabName = "qa",
+                h1("FQA"),
+                h4("Questions you asked most recently:"),
+                div(
+                  style = "margin-bottom: 20px;", 
+                  actionButton("q1", "What is this application about?"),
+                  hidden(
+                    div(id = "a1",
+                        p("This application provides various information about NBA teams and players, including historical data and player statistics.")
+                    )
+                  )
                 ),
                 div(
                   style = "margin-bottom: 20px;",
@@ -154,6 +149,5 @@ shinyUI(
         )
       )
     )
-  )
   )
 )
