@@ -91,7 +91,16 @@ shinyUI(
                 h1("Home dashboard")
         ),
         tabItem(tabName = "history",
-                h1("History dashboard")
+                h1("National Basketball Association History"),
+                fluidRow(
+                  column(4,
+                         h3("Teams foundation"),
+                         plotOutput("history_plot"),
+                         br()
+                         )
+                  
+                )
+                
         ),
         tabItem(tabName = "teams",
                 h1("National Basketball Association League Teams"),
