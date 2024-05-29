@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_5ab7c87e0c268229610898a383387716 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_5ab7c87e0c268229610898a383387716" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_5ab7c87e0c268229610898a383387716 = L.map(
+                "map_5ab7c87e0c268229610898a383387716",
+                {
+                    center: [37.0902, -95.7129],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 5,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_bd9148bdd88cb0194bc095f015504ee5 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors", "detectRetina": false, "maxNativeZoom": 19, "maxZoom": 19, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            );
+        
+    
+            tile_layer_bd9148bdd88cb0194bc095f015504ee5.addTo(map_5ab7c87e0c268229610898a383387716);
+        
+    
+            var circle_marker_0dd6c76de3dc30efe2e851df40852ee7 = L.circleMarker(
+                [25.7741728, -80.19362],
+                {"bubblingMouseEvents": true, "color": "#1B3770", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#1B3770", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_5ab7c87e0c268229610898a383387716);
+        
+    
+        var popup_a1a66da645202710cb1dfbc5cdcf7d9d = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_b9fc6f3d77d3417c3c816aae12a35176 = $(`<div id="html_b9fc6f3d77d3417c3c816aae12a35176" style="width: 100.0%; height: 100.0%;">Miami, Florida: 1 teams - Miami Heat</div>`)[0];
+                popup_a1a66da645202710cb1dfbc5cdcf7d9d.setContent(html_b9fc6f3d77d3417c3c816aae12a35176);
+            
+        
+
+        circle_marker_0dd6c76de3dc30efe2e851df40852ee7.bindPopup(popup_a1a66da645202710cb1dfbc5cdcf7d9d)
+        ;
+
+        
+    
+    
+            var circle_marker_1ed26599beb8158fcaf5ae5e2d9414a3 = L.circleMarker(
+                [28.5421109, -81.3790304],
+                {"bubblingMouseEvents": true, "color": "#1B3770", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#1B3770", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_5ab7c87e0c268229610898a383387716);
+        
+    
+        var popup_457b6c224029039a555cf721fde21855 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_5e57df38a86b840c50fa61275a64ddda = $(`<div id="html_5e57df38a86b840c50fa61275a64ddda" style="width: 100.0%; height: 100.0%;">Orlando, Florida: 1 teams - Orlando Magic</div>`)[0];
+                popup_457b6c224029039a555cf721fde21855.setContent(html_5e57df38a86b840c50fa61275a64ddda);
+            
+        
+
+        circle_marker_1ed26599beb8158fcaf5ae5e2d9414a3.bindPopup(popup_457b6c224029039a555cf721fde21855)
+        ;
+
+        
+    
+    
+            var circle_marker_77a6b29b34f457dee2b446b9aca6a17c = L.circleMarker(
+                [29.4246002, -98.4951405],
+                {"bubblingMouseEvents": true, "color": "#1B3770", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#1B3770", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_5ab7c87e0c268229610898a383387716);
+        
+    
+        var popup_f45d85e05ce4d5b7b21f3a3282014f54 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_affa8ce0813c03f6c781579fdfcd1c86 = $(`<div id="html_affa8ce0813c03f6c781579fdfcd1c86" style="width: 100.0%; height: 100.0%;">San Antonio, Texas: 1 teams - San Antonio Spurs</div>`)[0];
+                popup_f45d85e05ce4d5b7b21f3a3282014f54.setContent(html_affa8ce0813c03f6c781579fdfcd1c86);
+            
+        
+
+        circle_marker_77a6b29b34f457dee2b446b9aca6a17c.bindPopup(popup_f45d85e05ce4d5b7b21f3a3282014f54)
+        ;
+
+        
+    
+    
+            var circle_marker_c47e5f9263e7521badca73f3409ab18d = L.circleMarker(
+                [29.7589382, -95.3676974],
+                {"bubblingMouseEvents": true, "color": "#1B3770", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#1B3770", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_5ab7c87e0c268229610898a383387716);
+        
+    
+        var popup_7be60bfc91a650923b82a161a9b615b5 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_017c4cf098c14cf92f7f1bb6da284feb = $(`<div id="html_017c4cf098c14cf92f7f1bb6da284feb" style="width: 100.0%; height: 100.0%;">Houston, Texas: 1 teams - Houston Rockets</div>`)[0];
+                popup_7be60bfc91a650923b82a161a9b615b5.setContent(html_017c4cf098c14cf92f7f1bb6da284feb);
+            
+        
+
+        circle_marker_c47e5f9263e7521badca73f3409ab18d.bindPopup(popup_7be60bfc91a650923b82a161a9b615b5)
+        ;
+
+        
+    
+    
+            var circle_marker_6e9746f60774d6eef156b653f336491d = L.circleMarker(
+                [29.9759983, -90.0782127],
+                {"bubblingMouseEvents": true, "color": "#1B3770", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#1B3770", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_5ab7c87e0c268229610898a383387716);
+        
+    
+        var popup_e05895b89516068832e72fb4ac57b716 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_350dbd1b16ee1d5261aa0ae3f0422e6d = $(`<div id="html_350dbd1b16ee1d5261aa0ae3f0422e6d" style="width: 100.0%; height: 100.0%;">New Orleans, Louisiana: 1 teams - New Orleans Pelicans</div>`)[0];
+                popup_e05895b89516068832e72fb4ac57b716.setContent(html_350dbd1b16ee1d5261aa0ae3f0422e6d);
+            
+        
+
+        circle_marker_6e9746f60774d6eef156b653f336491d.bindPopup(popup_e05895b89516068832e72fb4ac57b716)
+        ;
+
+        
+    
+    
+            var circle_marker_5462b20bc104fc0039044119877bc5d5 = L.circleMarker(
+                [32.7762719, -96.7968559],
+                {"bubblingMouseEvents": true, "color": "#1B3770", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#1B3770", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_5ab7c87e0c268229610898a383387716);
+        
+    
+        var popup_a8f2d50daa49ae460282cf75a1458a59 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_8d5cf96799c650c74b3abc182141a029 = $(`<div id="html_8d5cf96799c650c74b3abc182141a029" style="width: 100.0%; height: 100.0%;">Dallas, Texas: 1 teams - Dallas Mavericks</div>`)[0];
+                popup_a8f2d50daa49ae460282cf75a1458a59.setContent(html_8d5cf96799c650c74b3abc182141a029);
+            
+        
+
+        circle_marker_5462b20bc104fc0039044119877bc5d5.bindPopup(popup_a8f2d50daa49ae460282cf75a1458a59)
+        ;
+
+        
+    
+    
+            var circle_marker_4763b8e08660af594a70094bc0a86a2c = L.circleMarker(
+                [33.4484367, -112.074141],
+                {"bubblingMouseEvents": true, "color": "#1B3770", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#1B3770", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_5ab7c87e0c268229610898a383387716);
+        
+    
+        var popup_b84630ad1e99cb0ff8cb455ea97b309d = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_8f889254c282080741f4891f286c8f67 = $(`<div id="html_8f889254c282080741f4891f286c8f67" style="width: 100.0%; height: 100.0%;">Phoenix, Arizona: 1 teams - Phoenix Suns</div>`)[0];
+                popup_b84630ad1e99cb0ff8cb455ea97b309d.setContent(html_8f889254c282080741f4891f286c8f67);
+            
+        
+
+        circle_marker_4763b8e08660af594a70094bc0a86a2c.bindPopup(popup_b84630ad1e99cb0ff8cb455ea97b309d)
+        ;
+
+        
+    
+    
+            var circle_marker_a2ff7de8752b704ef98d8cbb99e96a98 = L.circleMarker(
+                [34.0536909, -118.242766],
+                {"bubblingMouseEvents": true, "color": "#C8102E", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#C8102E", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_5ab7c87e0c268229610898a383387716);
+        
+    
+        var popup_fd2b7dbec4f50dee6f2af2d32cfac03a = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_7b12566c265c70f889ea7dbc64fc5bd2 = $(`<div id="html_7b12566c265c70f889ea7dbc64fc5bd2" style="width: 100.0%; height: 100.0%;">Los Angeles, California: 2 teams - Los Angeles Clippers, Los Angeles Lakers</div>`)[0];
+                popup_fd2b7dbec4f50dee6f2af2d32cfac03a.setContent(html_7b12566c265c70f889ea7dbc64fc5bd2);
+            
+        
+
+        circle_marker_a2ff7de8752b704ef98d8cbb99e96a98.bindPopup(popup_fd2b7dbec4f50dee6f2af2d32cfac03a)
+        ;
+
+        
+    
+    
+            var circle_marker_9efe9344489498f24293873944071bd1 = L.circleMarker(
+                [35.1460249, -90.0517638],
+                {"bubblingMouseEvents": true, "color": "#1B3770", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#1B3770", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_5ab7c87e0c268229610898a383387716);
+        
+    
+        var popup_108ad9682c521144ebece91e3c8a4f19 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_b95443f0ee89677961afc6274d8231e3 = $(`<div id="html_b95443f0ee89677961afc6274d8231e3" style="width: 100.0%; height: 100.0%;">Memphis, Tennessee: 1 teams - Memphis Grizzlies</div>`)[0];
+                popup_108ad9682c521144ebece91e3c8a4f19.setContent(html_b95443f0ee89677961afc6274d8231e3);
+            
+        
+
+        circle_marker_9efe9344489498f24293873944071bd1.bindPopup(popup_108ad9682c521144ebece91e3c8a4f19)
+        ;
+
+        
+    
+    
+            var circle_marker_d5749f0639466b2676610c0ac5973c72 = L.circleMarker(
+                [35.2272086, -80.8430827],
+                {"bubblingMouseEvents": true, "color": "#1B3770", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#1B3770", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_5ab7c87e0c268229610898a383387716);
+        
+    
+        var popup_f32b64419100be2fb0b572b4ced6f9e1 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_a68952931cac73496ca28e84304a4f46 = $(`<div id="html_a68952931cac73496ca28e84304a4f46" style="width: 100.0%; height: 100.0%;">Charlotte, North Carolina: 1 teams - Charlotte Hornets</div>`)[0];
+                popup_f32b64419100be2fb0b572b4ced6f9e1.setContent(html_a68952931cac73496ca28e84304a4f46);
+            
+        
+
+        circle_marker_d5749f0639466b2676610c0ac5973c72.bindPopup(popup_f32b64419100be2fb0b572b4ced6f9e1)
+        ;
+
+        
+    
+    
+            var circle_marker_801577075c6321f6128b91edc70f2a65 = L.circleMarker(
+                [35.4729886, -97.5170536],
+                {"bubblingMouseEvents": true, "color": "#1B3770", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#1B3770", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_5ab7c87e0c268229610898a383387716);
+        
+    
+        var popup_a6380079939be63bcf36742f1df2a576 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_498c640b38b8fe69b3d21c0b17bcb797 = $(`<div id="html_498c640b38b8fe69b3d21c0b17bcb797" style="width: 100.0%; height: 100.0%;">Oklahoma City, Oklahoma: 1 teams - Oklahoma City Thunder</div>`)[0];
+                popup_a6380079939be63bcf36742f1df2a576.setContent(html_498c640b38b8fe69b3d21c0b17bcb797);
+            
+        
+
+        circle_marker_801577075c6321f6128b91edc70f2a65.bindPopup(popup_a6380079939be63bcf36742f1df2a576)
+        ;
+
+        
+    
+    
+            var circle_marker_5bbd6801266c00925b6f5f4e46bac60e = L.circleMarker(
+                [37.8546664, -122.2921365],
+                {"bubblingMouseEvents": true, "color": "#1B3770", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#1B3770", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_5ab7c87e0c268229610898a383387716);
+        
+    
+        var popup_e0008a178dd43da6ab6763397cd414a7 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_879fcd970bb6ecb17223901fa871f642 = $(`<div id="html_879fcd970bb6ecb17223901fa871f642" style="width: 100.0%; height: 100.0%;">Golden State, California: 1 teams - Golden State Warriors</div>`)[0];
+                popup_e0008a178dd43da6ab6763397cd414a7.setContent(html_879fcd970bb6ecb17223901fa871f642);
+            
+        
+
+        circle_marker_5bbd6801266c00925b6f5f4e46bac60e.bindPopup(popup_e0008a178dd43da6ab6763397cd414a7)
+        ;
+
+        
+    
+    
+            var circle_marker_e03d026529ccdc3e7892abcf989d7d52 = L.circleMarker(
+                [38.5810606, -121.493895],
+                {"bubblingMouseEvents": true, "color": "#1B3770", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#1B3770", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_5ab7c87e0c268229610898a383387716);
+        
+    
+        var popup_655f5f3bb90790af9f2bdfc9e3372344 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_ba0338fbd842ce7b8ed18ff5917fe80d = $(`<div id="html_ba0338fbd842ce7b8ed18ff5917fe80d" style="width: 100.0%; height: 100.0%;">Sacramento, California: 1 teams - Sacramento Kings</div>`)[0];
+                popup_655f5f3bb90790af9f2bdfc9e3372344.setContent(html_ba0338fbd842ce7b8ed18ff5917fe80d);
+            
+        
+
+        circle_marker_e03d026529ccdc3e7892abcf989d7d52.bindPopup(popup_655f5f3bb90790af9f2bdfc9e3372344)
+        ;
+
+        
+    
+    
+            var circle_marker_e8da4c5ababa6928478afff71bd6f66f = L.circleMarker(
+                [38.8950368, -77.0365427],
+                {"bubblingMouseEvents": true, "color": "#1B3770", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#1B3770", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_5ab7c87e0c268229610898a383387716);
+        
+    
+        var popup_52618ab20b8480737a88e35ac32e5d35 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_57453b593eb68788421d0fc2bbcaf26e = $(`<div id="html_57453b593eb68788421d0fc2bbcaf26e" style="width: 100.0%; height: 100.0%;">Washington, District of Columbia: 1 teams - Washington Wizards</div>`)[0];
+                popup_52618ab20b8480737a88e35ac32e5d35.setContent(html_57453b593eb68788421d0fc2bbcaf26e);
+            
+        
+
+        circle_marker_e8da4c5ababa6928478afff71bd6f66f.bindPopup(popup_52618ab20b8480737a88e35ac32e5d35)
+        ;
+
+        
+    
+    
+            var circle_marker_9d101a365b7dd21310200358d5c9115d = L.circleMarker(
+                [39.7392364, -104.984862],
+                {"bubblingMouseEvents": true, "color": "#1B3770", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#1B3770", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_5ab7c87e0c268229610898a383387716);
+        
+    
+        var popup_da65e4e9e25d81e33fa95e9e5d79bc80 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_6f0cca2f16c0bfe4d60ea37e4cac46dd = $(`<div id="html_6f0cca2f16c0bfe4d60ea37e4cac46dd" style="width: 100.0%; height: 100.0%;">Denver, Colorado: 1 teams - Denver Nuggets</div>`)[0];
+                popup_da65e4e9e25d81e33fa95e9e5d79bc80.setContent(html_6f0cca2f16c0bfe4d60ea37e4cac46dd);
+            
+        
+
+        circle_marker_9d101a365b7dd21310200358d5c9115d.bindPopup(popup_da65e4e9e25d81e33fa95e9e5d79bc80)
+        ;
+
+        
+    
+    
+            var circle_marker_6599abd9308c9bc462f6838cd2e2294e = L.circleMarker(
+                [39.9527237, -75.1635262],
+                {"bubblingMouseEvents": true, "color": "#1B3770", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#1B3770", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_5ab7c87e0c268229610898a383387716);
+        
+    
+        var popup_66fd1e152fefde7820d775bd583d844e = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_fa3fa83ed3b06ddf10cfde968c5db53a = $(`<div id="html_fa3fa83ed3b06ddf10cfde968c5db53a" style="width: 100.0%; height: 100.0%;">Philadelphia, Pennsylvania: 1 teams - Philadelphia 76ers</div>`)[0];
+                popup_66fd1e152fefde7820d775bd583d844e.setContent(html_fa3fa83ed3b06ddf10cfde968c5db53a);
+            
+        
+
+        circle_marker_6599abd9308c9bc462f6838cd2e2294e.bindPopup(popup_66fd1e152fefde7820d775bd583d844e)
+        ;
+
+        
+    
+    
+            var circle_marker_811c3792e5248da3e0de9de4c093877c = L.circleMarker(
+                [40.177058, -111.69107185434031],
+                {"bubblingMouseEvents": true, "color": "#1B3770", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#1B3770", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_5ab7c87e0c268229610898a383387716);
+        
+    
+        var popup_6acf0156a6e048c46ab044c4529fa1b8 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_2e1138261e49aa648d5bad65eeb3f958 = $(`<div id="html_2e1138261e49aa648d5bad65eeb3f958" style="width: 100.0%; height: 100.0%;">Utah, Utah: 1 teams - Utah Jazz</div>`)[0];
+                popup_6acf0156a6e048c46ab044c4529fa1b8.setContent(html_2e1138261e49aa648d5bad65eeb3f958);
+            
+        
+
+        circle_marker_811c3792e5248da3e0de9de4c093877c.bindPopup(popup_6acf0156a6e048c46ab044c4529fa1b8)
+        ;
+
+        
+    
+    
+            var circle_marker_48d7121993d09bccf13f1de5a545803e = L.circleMarker(
+                [40.622825, -79.1533097],
+                {"bubblingMouseEvents": true, "color": "#1B3770", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#1B3770", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_5ab7c87e0c268229610898a383387716);
+        
+    
+        var popup_ecd2e7be1333b0f2a7e7b6dbb9a27a8b = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_4f510d4b53c5f2d8bd7188275e6f8dbe = $(`<div id="html_4f510d4b53c5f2d8bd7188275e6f8dbe" style="width: 100.0%; height: 100.0%;">Indiana, Indiana: 1 teams - Indiana Pacers</div>`)[0];
+                popup_ecd2e7be1333b0f2a7e7b6dbb9a27a8b.setContent(html_4f510d4b53c5f2d8bd7188275e6f8dbe);
+            
+        
+
+        circle_marker_48d7121993d09bccf13f1de5a545803e.bindPopup(popup_ecd2e7be1333b0f2a7e7b6dbb9a27a8b)
+        ;
+
+        
+    
+    
+            var circle_marker_bb3930869ed12f9b86f2584984990498 = L.circleMarker(
+                [40.6526006, -73.9497211],
+                {"bubblingMouseEvents": true, "color": "#1B3770", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#1B3770", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_5ab7c87e0c268229610898a383387716);
+        
+    
+        var popup_d8379c3ac3308e8ee2e933085279ec3c = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_91cab625cef954ecdcefcd3c8e29c21d = $(`<div id="html_91cab625cef954ecdcefcd3c8e29c21d" style="width: 100.0%; height: 100.0%;">Brooklyn, New York: 1 teams - Brooklyn Nets</div>`)[0];
+                popup_d8379c3ac3308e8ee2e933085279ec3c.setContent(html_91cab625cef954ecdcefcd3c8e29c21d);
+            
+        
+
+        circle_marker_bb3930869ed12f9b86f2584984990498.bindPopup(popup_d8379c3ac3308e8ee2e933085279ec3c)
+        ;
+
+        
+    
+    
+            var circle_marker_106a89ed0409d2d1a78abd0e175d21ac = L.circleMarker(
+                [40.7127281, -74.0060152],
+                {"bubblingMouseEvents": true, "color": "#1B3770", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#1B3770", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_5ab7c87e0c268229610898a383387716);
+        
+    
+        var popup_630f16e929742b671dc035bcad21303b = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_d9c38d2eaa23897fa7ed9d9199849dbd = $(`<div id="html_d9c38d2eaa23897fa7ed9d9199849dbd" style="width: 100.0%; height: 100.0%;">New York, New York: 1 teams - New York Knicks</div>`)[0];
+                popup_630f16e929742b671dc035bcad21303b.setContent(html_d9c38d2eaa23897fa7ed9d9199849dbd);
+            
+        
+
+        circle_marker_106a89ed0409d2d1a78abd0e175d21ac.bindPopup(popup_630f16e929742b671dc035bcad21303b)
+        ;
+
+        
+    
+    
+            var circle_marker_948f2fe67ae58401126247129abe8abf = L.circleMarker(
+                [41.4996574, -81.6936772],
+                {"bubblingMouseEvents": true, "color": "#1B3770", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#1B3770", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_5ab7c87e0c268229610898a383387716);
+        
+    
+        var popup_ba70d248bcf6b6350c64cef415dc1fb3 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_b94a1e0c9187c1d7260ea874eb418137 = $(`<div id="html_b94a1e0c9187c1d7260ea874eb418137" style="width: 100.0%; height: 100.0%;">Cleveland, Ohio: 1 teams - Cleveland Cavaliers</div>`)[0];
+                popup_ba70d248bcf6b6350c64cef415dc1fb3.setContent(html_b94a1e0c9187c1d7260ea874eb418137);
+            
+        
+
+        circle_marker_948f2fe67ae58401126247129abe8abf.bindPopup(popup_ba70d248bcf6b6350c64cef415dc1fb3)
+        ;
+
+        
+    
+    
+            var circle_marker_1a61d50196887713179b127bca0ce92f = L.circleMarker(
+                [41.8755616, -87.6244212],
+                {"bubblingMouseEvents": true, "color": "#1B3770", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#1B3770", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_5ab7c87e0c268229610898a383387716);
+        
+    
+        var popup_196ca6f8648d313f88ef4a6740a51ba3 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_60a78da1a5644bbf247b93985b590a83 = $(`<div id="html_60a78da1a5644bbf247b93985b590a83" style="width: 100.0%; height: 100.0%;">Chicago, Illinois: 1 teams - Chicago Bulls</div>`)[0];
+                popup_196ca6f8648d313f88ef4a6740a51ba3.setContent(html_60a78da1a5644bbf247b93985b590a83);
+            
+        
+
+        circle_marker_1a61d50196887713179b127bca0ce92f.bindPopup(popup_196ca6f8648d313f88ef4a6740a51ba3)
+        ;
+
+        
+    
+    
+            var circle_marker_27290835883e46406d17d3cab877fe2c = L.circleMarker(
+                [42.3315509, -83.0466403],
+                {"bubblingMouseEvents": true, "color": "#1B3770", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#1B3770", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_5ab7c87e0c268229610898a383387716);
+        
+    
+        var popup_32295dcffffb9705d7c13887a38ff3a2 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_3c36a947faa68c62d128121843d1eb9e = $(`<div id="html_3c36a947faa68c62d128121843d1eb9e" style="width: 100.0%; height: 100.0%;">Detroit, Michigan: 1 teams - Detroit Pistons</div>`)[0];
+                popup_32295dcffffb9705d7c13887a38ff3a2.setContent(html_3c36a947faa68c62d128121843d1eb9e);
+            
+        
+
+        circle_marker_27290835883e46406d17d3cab877fe2c.bindPopup(popup_32295dcffffb9705d7c13887a38ff3a2)
+        ;
+
+        
+    
+    
+            var circle_marker_4953cc5325339e9936c1bf2d620fd083 = L.circleMarker(
+                [42.3554334, -71.060511],
+                {"bubblingMouseEvents": true, "color": "#1B3770", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#1B3770", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_5ab7c87e0c268229610898a383387716);
+        
+    
+        var popup_63a27fa065c595f0ee46f8e21c064918 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_a14d700107bf9ac5c3b90820c8a77521 = $(`<div id="html_a14d700107bf9ac5c3b90820c8a77521" style="width: 100.0%; height: 100.0%;">Boston, Massachusetts: 1 teams - Boston Celtics</div>`)[0];
+                popup_63a27fa065c595f0ee46f8e21c064918.setContent(html_a14d700107bf9ac5c3b90820c8a77521);
+            
+        
+
+        circle_marker_4953cc5325339e9936c1bf2d620fd083.bindPopup(popup_63a27fa065c595f0ee46f8e21c064918)
+        ;
+
+        
+    
+    
+            var circle_marker_22118d3bd9c310b073b61b7f913873d9 = L.circleMarker(
+                [43.0386475, -87.9090751],
+                {"bubblingMouseEvents": true, "color": "#1B3770", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#1B3770", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_5ab7c87e0c268229610898a383387716);
+        
+    
+        var popup_7ed607bb89e6ac0b37989e0c0bd95687 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_f93a76ac63e46263277ca2bfa2aa3e17 = $(`<div id="html_f93a76ac63e46263277ca2bfa2aa3e17" style="width: 100.0%; height: 100.0%;">Milwaukee, Wisconsin: 1 teams - Milwaukee Bucks</div>`)[0];
+                popup_7ed607bb89e6ac0b37989e0c0bd95687.setContent(html_f93a76ac63e46263277ca2bfa2aa3e17);
+            
+        
+
+        circle_marker_22118d3bd9c310b073b61b7f913873d9.bindPopup(popup_7ed607bb89e6ac0b37989e0c0bd95687)
+        ;
+
+        
+    
+    
+            var circle_marker_8f0a3cd20ebc973cbeff302f186cdf96 = L.circleMarker(
+                [43.6534817, -79.3839347],
+                {"bubblingMouseEvents": true, "color": "#1B3770", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#1B3770", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_5ab7c87e0c268229610898a383387716);
+        
+    
+        var popup_673e79e29a8d722566cf560d108c895f = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_d05a53df10add192fdb5b2385f31fed3 = $(`<div id="html_d05a53df10add192fdb5b2385f31fed3" style="width: 100.0%; height: 100.0%;">Toronto, Ontario: 1 teams - Toronto Raptors</div>`)[0];
+                popup_673e79e29a8d722566cf560d108c895f.setContent(html_d05a53df10add192fdb5b2385f31fed3);
+            
+        
+
+        circle_marker_8f0a3cd20ebc973cbeff302f186cdf96.bindPopup(popup_673e79e29a8d722566cf560d108c895f)
+        ;
+
+        
+    
+    
+            var circle_marker_02c6f52929b001d3f37caf27173d68f6 = L.circleMarker(
+                [44.9863392, -93.17945580218503],
+                {"bubblingMouseEvents": true, "color": "#1B3770", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#1B3770", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_5ab7c87e0c268229610898a383387716);
+        
+    
+        var popup_160c6405f7bc7f1dd44843d451690eb1 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_2882c4f2f470377330e17b4f50637727 = $(`<div id="html_2882c4f2f470377330e17b4f50637727" style="width: 100.0%; height: 100.0%;">Minnesota, Minnesota: 1 teams - Minnesota Timberwolves</div>`)[0];
+                popup_160c6405f7bc7f1dd44843d451690eb1.setContent(html_2882c4f2f470377330e17b4f50637727);
+            
+        
+
+        circle_marker_02c6f52929b001d3f37caf27173d68f6.bindPopup(popup_160c6405f7bc7f1dd44843d451690eb1)
+        ;
+
+        
+    
+    
+            var circle_marker_bc84c01bf9e8e3379dd0bca88b90550c = L.circleMarker(
+                [45.0047575, -84.15197019460344],
+                {"bubblingMouseEvents": true, "color": "#1B3770", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#1B3770", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_5ab7c87e0c268229610898a383387716);
+        
+    
+        var popup_66896f1ffec4303dbb6404598d15ee7e = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_fe95cff4432f78b2009ef008edf250dc = $(`<div id="html_fe95cff4432f78b2009ef008edf250dc" style="width: 100.0%; height: 100.0%;">Atlanta, Atlanta: 1 teams - Atlanta Hawks</div>`)[0];
+                popup_66896f1ffec4303dbb6404598d15ee7e.setContent(html_fe95cff4432f78b2009ef008edf250dc);
+            
+        
+
+        circle_marker_bc84c01bf9e8e3379dd0bca88b90550c.bindPopup(popup_66896f1ffec4303dbb6404598d15ee7e)
+        ;
+
+        
+    
+    
+            var circle_marker_595780eccc82a2e01d433935c4df8b1f = L.circleMarker(
+                [45.5202471, -122.674194],
+                {"bubblingMouseEvents": true, "color": "#1B3770", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#1B3770", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_5ab7c87e0c268229610898a383387716);
+        
+    
+        var popup_a1f5b647af188c412769308d4aa61412 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_db4742758d25c26c1ba27672d697b4d7 = $(`<div id="html_db4742758d25c26c1ba27672d697b4d7" style="width: 100.0%; height: 100.0%;">Portland, Oregon: 1 teams - Portland Trail Blazers</div>`)[0];
+                popup_a1f5b647af188c412769308d4aa61412.setContent(html_db4742758d25c26c1ba27672d697b4d7);
+            
+        
+
+        circle_marker_595780eccc82a2e01d433935c4df8b1f.bindPopup(popup_a1f5b647af188c412769308d4aa61412)
+        ;
+
+        
+    
+</script>
+</html>

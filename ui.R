@@ -96,7 +96,15 @@ shinyUI(
       ),
       tabItems(
         tabItem(tabName = "home",
-                h1("Home dashboard")
+                h1("Home dashboard"),
+                fluidRow(
+                  column(6,
+                        plotlyOutput("player_donut")
+                         ),
+                  column(6,
+                         plotlyOutput("team_donut")
+                  )
+                )
         ),
         tabItem(tabName = "history",
                 h1("National Basketball Association History"),
@@ -121,9 +129,9 @@ shinyUI(
                 fluidRow(
                   theme = shinytheme("cyborg"),
                   column(width = 12, class = "col-custom",
-                         DT::dataTableOutput("team")
+                         uiOutput("team_grid"),
+                         tags$iframe(src = "us_nba_teams_map.html", height = "600px", width = "100%", frameborder = "0")
                   )
-
                 )
         ),
         tabItem(tabName = "players",
