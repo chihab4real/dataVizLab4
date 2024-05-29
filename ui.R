@@ -5,6 +5,7 @@ library(htmltools)
 library(shinyjs)
 library(DT)
 library(shinythemes)
+library(plotly)
 
 # My own theme using fresh
 my_theme <- create_theme(
@@ -84,6 +85,13 @@ shinyUI(
           .dt-button .fa {
             margin-right: 0;
           }
+        .centered-subtitle {
+        text-align: center;
+        background-color: #C8102E;
+        color: white;
+        padding: 10px;
+        margin-bottom: 10px;
+      }
         "))
       ),
       tabItems(
@@ -92,13 +100,18 @@ shinyUI(
         ),
         tabItem(tabName = "history",
                 h1("National Basketball Association History"),
+                h3("Here you can learn about foundation of given team and it's resignation"),
                 fluidRow(
-                  column(4,
-                         h3("Teams foundation"),
-                         plotOutput("history_plot"),
+                  column(6,
+                         h3("Teams Year Foundation", class = "centered-subtitle"),
+                         plotlyOutput("history_plot"),
                          br()
-                         )
-                  
+                         ),
+                  column(6,
+                         h3("Teams Year Resignation", class = "centered-subtitle"),
+                         plotlyOutput("history_plot2"),
+                         br()
+                  )                  
                 )
                 
         ),
