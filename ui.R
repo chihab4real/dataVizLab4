@@ -99,8 +99,8 @@ shinyUI(
                 h1("Home dashboard"),
                 fluidRow(
                   column(6,
-                        plotlyOutput("player_donut")
-                         ),
+                         plotlyOutput("player_donut")
+                  ),
                   column(6,
                          plotlyOutput("team_donut")
                   )
@@ -114,7 +114,7 @@ shinyUI(
                          h3("Teams Year Foundation", class = "centered-subtitle"),
                          plotlyOutput("history_plot"),
                          br()
-                         ),
+                  ),
                   column(6,
                          h3("Teams Year Resignation", class = "centered-subtitle"),
                          plotlyOutput("history_plot2"),
@@ -132,7 +132,11 @@ shinyUI(
                          actionButton("show_grid", "Grid"),
                          actionButton("show_map", "Map"),
                          actionButton("show_datatable", "Datatable"),
-                         hidden(div(id = "team_grid_div", uiOutput("team_grid"))),
+                         hidden(div(id = "team_grid_div",
+                                    selectInput("conference_filter", "Select Conference:",
+                                                choices = c("Show All", "Show Eastern", "Show Western"),
+                                                selected = "Show All"),
+                                    uiOutput("team_grid"))),
                          hidden(div(id = "team_map_div", tags$iframe(src = "us_nba_teams_map.html", height = "600px", width = "100%", frameborder = "0"))),
                          hidden(div(id = "datatable_div", DT::dataTableOutput("team_datatable")))
                   )
