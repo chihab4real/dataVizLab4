@@ -91,26 +91,122 @@ shinyUI(
         color: white;
         padding: 10px;
         margin-bottom: 10px;
+        }
+      
+      .custom-text {
+            font-family: 'Arial', sans-serif;
+            font-weight: bold; 
+            
       }
+          
+          .center-image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+          }
+          
+          .center-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+          }
+          
+          .image-margin {
+            margin-bottom: 20px;
+            margin-top: 20px;
+            margin-left: 50px;
+            margin-right: 50px;
+          }
+          
+          .custom-margin{
+          margin-bottom: 20px;
+          }
+          
+          .txt-margin {
+            margin-bottom: 30px;
+            margin-top: 30px;
+            margin-left: 30px;
+            margin-right: 30px;
+          }
+          
+          .footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: #f0f0f5;
+            padding: 10px;
+            text-align: center;
+          }
         "))
       ),
       tabItems(
         tabItem(tabName = "home",
                 h1("Home dashboard"),
                 fluidRow(
-                  column(6,
-                         plotlyOutput("player_donut")
+                  column(8,
+                        box(
+                          title = "Welcome to NBA DashBoard",
+                          status = "primary",
+                          solidHeader = TRUE,
+                          collapsible = FALSE,
+                          img(src = "MJ.jpg", height = 550, width = "100%"),
+                          h4(class = "custom-text", "There is no 'I' in the team but there is in WIN"),
+                          h4("MJ"),
+                          width = 18,
+                        )
                   ),
-                  column(6,
-                         plotlyOutput("team_donut")
+                  column(4,
+                        box(
+                          title = " ",
+                          status = "primary",
+                          solidHeader = TRUE,
+                          collapsible = FALSE,
+                          width = 15,
+                          fluidRow(
+                            column(12,
+                                   div(class = "center-content",
+                                   img(src = "dashboard_logo_s.png", class = c("center-image","custom-margin"), width = "70%"),
+                                   
+                                   )
+                                   ),
+                            h4(class = "txt-margin", "This is a simple dashboard for National Basketball Association fans. You can find here information about NBA history, teams, players and more."),
+                            fluidRow(
+                              
+                              column(6,
+                                     img(src = "nba_west_dark.png", class = c("center-image","image-margin"), width = "60%"),
+                                     
+                              ),
+                              column(6,
+                                     img(src = "nba_east_dark.png", class = c("center-image","image-margin"), width = "60%"),
+                                     
+                              )
+                            )
+                          
+                  
+                          )
+                         
+                      
+                          
+                        )
+                         
+                  )
+                ),
+                fluidRow(
+                  column(12,
+                         div(class = "footer",
+                             h4("This application was created by:", strong(" Wiktoria Szarzyńska "), "& ", strong(" ChihabEddine Zitouni ")),
+                         )
                   )
                 )
+                
         ),
         tabItem(tabName = "history",
                 h1("National Basketball Association History"),
                 h3("Here you can learn about foundation of given team and it's resignation"),
                 fluidRow(
-                  column(6,
+                  column(8,
                          h3("Teams Year Foundation", class = "centered-subtitle"),
                          plotlyOutput("history_plot"),
                          br()

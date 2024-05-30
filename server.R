@@ -37,7 +37,7 @@ server <- function(input, output, session) {
   
   team <- read.csv("csv files/team.csv", header = TRUE, stringsAsFactors = FALSE)
   team <- team %>% select(-id)
-  team_datatable <- team %>% select(-logo)
+  team_datatable <- team %>% select(-logo) %>% select(-conf_sec) %>% select(-conference)
   team$logo_path <- team$logo
   colnames(team_datatable) <- c("Team Name", "Abbreviation", "Nickname", "City", "State", "Year Established")
   
@@ -80,18 +80,22 @@ server <- function(input, output, session) {
   })
   
   output$team_datatable <- DT::renderDataTable({
-    datatable(
-      team_datatable,
-      filter = "top",
-      options = list(
-        pageLength = 10,
-        autoWidth = TRUE,
-        dom = 'Bfrtip',
-        buttons = list('copy', 'csv', 'excel', 'pdf', 'print'),
-        columnDefs = list(list(width = '20%', targets = c(0, 3)))
-      ),
-      rownames = FALSE
-    )
+    DT::datatable(team_datatable, 
+                  style = "bootstrap",
+                  options = list(pageLength = 5,
+                                 lengthMenu = c(5,10,20),
+                                 searching = TRUE,
+                                 ordering = TRUE,
+                                 dom = 'Bfrtip',
+                                 buttons = list(
+                                   list(extend = 'copy', text = '<i class="fa fa-copy"></i>'),
+                                   list(extend = 'csv', text = '<i class="fa fa-file-csv"></i>'),
+                                   list(extend = 'excel', text = '<i class="fa fa-file-excel"></i>')
+                                 ),
+                                 class = 'stripe hover'),
+                  extensions = c('Buttons'),
+                  escape = FALSE
+    ) 
   })
   
   filtered_teams <- reactive({
@@ -145,7 +149,7 @@ server <- function(input, output, session) {
       })
     )
     
-  
+    
   })
   
   observeEvent(input$show_grid, {
