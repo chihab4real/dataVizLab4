@@ -12,6 +12,7 @@ server <- function(input, output, session) {
   players <- read.csv("csv files/player.csv", header = TRUE, stringsAsFactors = FALSE)
   team_history <- read.csv("csv files/team_history.csv", header = TRUE, stringsAsFactors = FALSE)
   
+  
   players$is_active <- as.logical(players$is_active)
   
   player_summary <- players %>%
@@ -39,9 +40,10 @@ server <- function(input, output, session) {
   
   team <- read.csv("csv files/team.csv", header = TRUE, stringsAsFactors = FALSE)
   team <- team %>% select(-id)
+  team_datatable <- team %>% select(-logo)
   #team$logo <- paste0('<img src="', team$logo, '" height="50" />')
   team$logo_path <- team$logo
-  #colnames(team) <- c("Team Name", "Abbreviation", "Nickname", "City", "State", "Year Established", "Logo")
+  colnames(team_datatable) <- c("Team Name", "Abbreviation", "Nickname", "City", "State", "Year Established")
   
   
   history = read.csv("csv files/team_history.csv", sep = ",")
@@ -54,7 +56,26 @@ server <- function(input, output, session) {
   data_till <- history_till%>% 
     group_by(year_group) %>% summarise(n_till=n())  
   initial_data <- data_till
-  initial_data$n_till <- rep(0, length(data_till$n_till))  
+  initial_data$n_till <- rep(0, length(data_till$n_till)) 
+  
+  output$team_datatable <- DT::renderDataTable({
+    DT::datatable(team_datatable, 
+                  style = "bootstrap",
+                  options = list(pageLength = 5,
+                                 lengthMenu = c(5,10,20),
+                                 searching = TRUE,
+                                 ordering = TRUE,
+                                 dom = 'Bfrtip',
+                                 buttons = list(
+                                   list(extend = 'copy', text = '<i class="fa fa-copy"></i>'),
+                                   list(extend = 'csv', text = '<i class="fa fa-file-csv"></i>'),
+                                   list(extend = 'excel', text = '<i class="fa fa-file-excel"></i>')
+                                 ),
+                                 class = 'stripe hover'),
+                  extensions = c('Buttons'),
+                  escape = FALSE
+    ) 
+  })
   
   output$team_grid <- renderUI({
     fluidRow(
@@ -93,7 +114,23 @@ server <- function(input, output, session) {
     )
   })
   
+  observeEvent(input$show_grid, {
+    show("team_grid_div")
+    hide("team_map_div")
+    hide("datatable_div")
+  })
   
+  observeEvent(input$show_map, {
+    show("team_map_div")
+    hide("team_grid_div")
+    hide("datatable_div")
+  })
+  
+  observeEvent(input$show_datatable, {
+    show("datatable_div")
+    hide("team_grid_div")
+    hide("team_map_div")
+  })  
   
   output$history_plot <- renderPlotly({
     plot_ly(data, x = ~year_group, y = ~n_founded, type = 'bar', 

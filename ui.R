@@ -125,12 +125,16 @@ shinyUI(
         ),
         tabItem(tabName = "teams",
                 h1("National Basketball Association League Teams"),
-                h4("Choose your favourite team and get to know it better"),
+                h4("Choose visualization and get to know your favourite team better"),
                 fluidRow(
                   theme = shinytheme("cyborg"),
                   column(width = 12, class = "col-custom",
-                         uiOutput("team_grid"),
-                         tags$iframe(src = "us_nba_teams_map.html", height = "600px", width = "100%", frameborder = "0")
+                         actionButton("show_grid", "Grid"),
+                         actionButton("show_map", "Map"),
+                         actionButton("show_datatable", "Datatable"),
+                         hidden(div(id = "team_grid_div", uiOutput("team_grid"))),
+                         hidden(div(id = "team_map_div", tags$iframe(src = "us_nba_teams_map.html", height = "600px", width = "100%", frameborder = "0"))),
+                         hidden(div(id = "datatable_div", DT::dataTableOutput("team_datatable")))
                   )
                 )
         ),
