@@ -344,6 +344,38 @@ server <- function(input, output, session) {
                       ))
     })
   })
+  players <- read.csv("csv files/player.csv", header = TRUE, stringsAsFactors = FALSE)
+  team_history <- read.csv("csv files/team_history.csv", header = TRUE, stringsAsFactors = FALSE)
   
+  players$is_active <- as.logical(players$is_active)
+  
+  player_summary <- players %>%
+    mutate(status = ifelse(is_active == 1, "Active players", "Not Active players")) %>%
+    group_by(status) %>%
+    summarise(count = n())
+  
+  team_summary <- team_history %>%
+    mutate(status = ifelse(year_active_till == "2019", "Active teams", "Not Active teams")) %>%
+    group_by(status) %>%
+    summarise(count = n())
+  
+
+  
+ 
+  
+  observeEvent(input$details, {
+
+    output$player_donut <- renderPlotly({
+      plot_ly(player_summary, labels = ~status, values = ~count, text = ~paste(count, "Players"), type = 'pie', hole = 0.6) %>%
+        layout(showlegend = TRUE, hoverinfo = "label+text") %>%
+        add_trace(marker = list(colors = c("#C8102E", "#1B3770")))
+    })
+    
+    output$team_donut <- renderPlotly({
+      plot_ly(team_summary, labels = ~status, values = ~count, text = ~paste(count, "Teams"), type = 'pie', hole = 0.6) %>%
+        layout(showlegend = TRUE, hoverinfo = "label+text") %>%
+        add_trace(marker = list(colors = c("#C8102E", "#1B3770")))
+    }) 
+  })  
 
 }
