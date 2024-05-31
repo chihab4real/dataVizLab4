@@ -17,6 +17,13 @@ server <- function(input, output, session) {
   #
   players$is_active <- as.logical(players$is_active)
   
+  
+  player_comparison <- players_common_active %>% select( first_name, last_name, birthdate, school, country, height, weight, position)
+  player_comparison$birthdate <- as.Date(player_comparison$birthdate)
+  player_comparison$birthdate <- format(player_comparison$birthdate, "%d.%m.%Y")
+  
+  colnames(player_comparison) <- c("First Name", "Last name", "Birthday", "School", "Country", "Height", "Weight", "Position")
+  
   player_summary <- players %>%
     mutate(status = ifelse(is_active == 1, "Active players", "Not Active players")) %>%
     group_by(status) %>%
@@ -26,6 +33,7 @@ server <- function(input, output, session) {
     mutate(status = ifelse(year_active_till == "2019", "Active teams", "Not Active teams")) %>%
     group_by(status) %>%
     summarise(count = n())
+  
   
   output$player_donut <- renderPlotly({
     plot_ly(player_summary, labels = ~status, values = ~count, text = ~paste(count, "Players"), type = 'pie', hole = 0.6) %>%
@@ -86,7 +94,7 @@ server <- function(input, output, session) {
   output$team_datatable <- DT::renderDataTable({
     DT::datatable(team_datatable, 
                   style = "bootstrap",
-                  options = list(pageLength = 5,
+                  options = list(pageLength = 10,
                                  lengthMenu = c(5,10,20),
                                  searching = TRUE,
                                  ordering = TRUE,
@@ -293,14 +301,49 @@ server <- function(input, output, session) {
   observeEvent(input$q4, {
     toggle("a4")
   })
+  view <- reactiveVal("grid")
   
-  observeEvent(input$compare, {
-    # Get the selected players
-    player1 <- players_common_active[players_common_active$display_first_last == input$player1, ]
-    player2 <- players_common_active[players_common_active$display_first_last == input$player2, ]
-    
-    # Compare the players (you can modify this part to suit your needs)
-    print(paste("Comparing", player1$display_first_last, "and", player2$display_first_last))
+  observeEvent(input$show_grid, {
+    view("grid")
   })
   
+  observeEvent(input$compare_players, {
+    view("compare")
+  }) 
+  
+
+  
+  observe({
+    updateSelectInput(session, "player1", choices = unique(players_common_active$display_first_last[players_common_active$team_name == input$team1]))
+  })
+  
+  observe({
+    updateSelectInput(session, "player2", choices = unique(players_common_active$display_first_last[players_common_active$team_name == input$team2]))
+  })
+  
+  # Observe the compare button click
+  observeEvent(input$compare, {
+
+    player1_data <- player_comparison[players_common_active$display_first_last == input$player1, ]
+    player2_data <- player_comparison[players_common_active$display_first_last == input$player2, ]
+    
+    
+    comparison_data  <- data.frame(
+      Attribute = names(player1_data),
+      Player1 = as.character(player1_data[1, ]),
+      Player2 = as.character(player2_data[1, ])
+    )
+    # Render the combined data table
+    output$comparison_table <- DT::renderDataTable({
+      DT::datatable(comparison_data, 
+                    options = list(
+                      searching = FALSE,  # Disable search
+                      lengthMenu = list(c(5, 10, -1), c('5', '10', 'All')),  # Remove length menu
+                      pageLength = 10,  # Set default page length
+                      dom = 't'  # Display only table without other controls
+                      ))
+    })
+  })
+  
+
 }

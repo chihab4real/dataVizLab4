@@ -209,7 +209,7 @@ shinyUI(
                 h1("National Basketball Association History"),
                 h3("Here you can learn about foundation of given team and it's resignation"),
                 fluidRow(
-                  column(8,
+                  column(6,
                          h3("Teams Year Foundation", class = "centered-subtitle"),
                          plotlyOutput("history_plot"),
                          br()
@@ -241,37 +241,43 @@ shinyUI(
                   )
                 )
         ),
-        
-        
-        
-        
         tabItem(tabName = "players",
                 fluidRow(
                   theme = shinytheme("cyborg"),
                   column(width = 12, class = "col-custom",
                          actionButton("show_grid", "Show All Players Grid"),
-                         actionButton("compare_players", "Compare 2 Players"),
+                         actionButton("compare_players", "Compare 2 Players")
+                  )
+                ),
+                fluidRow(
+                  column(width = 12, class = "col-custom",
                          conditionalPanel(
-                           condition = "input.show_grid > input.compare_players",
+                           condition = "input.show_grid >= input.compare_players",
                            selectInput("team", "Select a team:", c("Show All", unique(players_common_active$team_name))),
                            textInput("search", "Search player:"),
                            uiOutput("players_grid")
-                         ),
+                         )
+                  ),
+                  column(width = 6, class = "col-custom",
                          conditionalPanel(
                            condition = "input.compare_players > input.show_grid",
                            selectInput("team1", "Select team for first player:", unique(players_common_active$team_name)),
+                           selectInput("player1", "Select first player:", NULL),
                            selectInput("team2", "Select team for second player:", unique(players_common_active$team_name)),
-                           uiOutput("player1"),
-                           uiOutput("player2"),
-                           actionButton("compare", "Compare"),
-                           uiOutput("comparison")
+                           selectInput("player2", "Select second player:", NULL),
+                           actionButton("compare", "Compare")
                          )
-                         
-                         
+                  ),
+                  column(width = 6, class = "col-custom",
+                         conditionalPanel(
+                           condition = "input.compare_players >= input.show_grid",
+                           uiOutput("comparison"),
+                           DT::dataTableOutput("comparison_table")
+                           
+                         )
                   )
                 )
         )
-        
         
         
         
