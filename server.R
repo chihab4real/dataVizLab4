@@ -10,7 +10,11 @@ library(plotly)
 server <- function(input, output, session) {
   players <- read.csv("csv files/player.csv", header = TRUE, stringsAsFactors = FALSE)
   team_history <- read.csv("csv files/team_history.csv", header = TRUE, stringsAsFactors = FALSE)
+  #
+  players_common <- read.csv("csv files/common_player_info.csv", header = TRUE, stringsAsFactors = FALSE)
   
+  players_common_active <- players_common[players_common$rosterstatus == 'Active', ]
+  #
   players$is_active <- as.logical(players$is_active)
   
   player_summary <- players %>%
@@ -108,6 +112,110 @@ server <- function(input, output, session) {
     }
   })
   
+  output$players_grid <- renderUI({
+    
+    selected_team_players <- if (input$team == "Show All") {
+      players_common_active
+    } else {
+      players_common_active[players_common_active$team_name == input$team, ]
+    }
+    
+    
+    if (input$search != "") {
+      selected_team_players <- selected_team_players[grep(input$search, selected_team_players$display_first_last), ]
+    }
+    
+    
+    if (nrow(selected_team_players) > 0) {
+      fluidRow(
+        lapply(1:nrow(selected_team_players), function(i) {
+          column(
+            width = 2, 
+            align = "center",
+            style = "margin-bottom: 20px;", 
+            div(
+              style = "position: relative; width: 100px; height: 100px; border-radius: 15px; overflow: hidden; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);",
+              img(
+                src = paste0("img_players/", selected_team_players$person_id[i], ".png"),  # Adjust the file extension if it's different
+                height = 80,
+                style = "position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); max-width: 100%; max-height: 100%;"
+              )
+            ),
+            div(
+              style = "padding: 8px; color: #000; text-align: center; font-size: 18px; font-weight: bold;",
+              selected_team_players$display_first_last[i]
+            )
+          )
+        })
+      )
+    } else {
+      
+      p("No players found.")
+    }
+  })
+  
+  
+  output$player1 <- renderUI({
+    selectInput("player1", "Select first player to compare:", 
+                players_common_active[players_common_active$team_name == input$team1, ]$display_first_last)
+  })
+  
+  output$player2 <- renderUI({
+    selectInput("player2", "Select second player to compare:", 
+                players_common_active[players_common_active$team_name == input$team2, ]$display_first_last)
+  })
+  
+  
+  
+  output$comparison <- renderUI({
+    
+    if (!is.null(input$player1) && !is.null(input$player2)) {
+      
+      player1_data <- players_common_active[players_common_active$display_first_last == input$player1, ]
+      player2_data <- players_common_active[players_common_active$display_first_last == input$player2, ]
+      
+      
+      fluidRow(
+        column(
+          width = 6,
+          align = "center",
+          div(
+            style = "position: relative; width: 100px; height: 100px; border-radius: 15px; overflow: hidden; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);",
+            img(
+              src = paste0("img_players/", player1_data$person_id, ".png"),
+              height = 80,
+              style = "position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); max-width: 100%; max-height: 100%;"
+            )
+          ),
+          div(
+            style = "padding: 8px; color: #000; text-align: center; font-size: 18px; font-weight: bold;",
+            player1_data$display_first_last
+          )
+        ),
+        column(
+          width = 6,
+          align = "center",
+          div(
+            style = "position: relative; width: 100px; height: 100px; border-radius: 15px; overflow: hidden; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);",
+            img(
+              src = paste0("img_players/", player2_data$person_id, ".png"),
+              height = 80,
+              style = "position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); max-width: 100%; max-height: 100%;"
+            )
+          ),
+          div(
+            style = "padding: 8px; color: #000; text-align: center; font-size: 18px; font-weight: bold;",
+            player2_data$display_first_last
+          )
+        )
+      )
+    }
+  })
+  
+  
+  
+  
+  
   
   output$team_grid <- renderUI({
     teams_1 <- filtered_teams()
@@ -185,4 +293,14 @@ server <- function(input, output, session) {
   observeEvent(input$q4, {
     toggle("a4")
   })
+  
+  observeEvent(input$compare, {
+    # Get the selected players
+    player1 <- players_common_active[players_common_active$display_first_last == input$player1, ]
+    player2 <- players_common_active[players_common_active$display_first_last == input$player2, ]
+    
+    # Compare the players (you can modify this part to suit your needs)
+    print(paste("Comparing", player1$display_first_last, "and", player2$display_first_last))
+  })
+  
 }

@@ -7,6 +7,9 @@ library(DT)
 library(shinythemes)
 library(plotly)
 
+players_common <- read.csv("csv files/common_player_info.csv", header = TRUE, stringsAsFactors = FALSE)
+players_common_active <- players_common[players_common$rosterstatus == 'Active', ]
+
 # My own theme using fresh
 my_theme <- create_theme(
   adminlte_color(
@@ -146,50 +149,50 @@ shinyUI(
                 h1("Home dashboard"),
                 fluidRow(
                   column(8,
-                        box(
-                          title = "Welcome to NBA DashBoard",
-                          status = "primary",
-                          solidHeader = TRUE,
-                          collapsible = FALSE,
-                          img(src = "MJ.jpg", height = 550, width = "100%"),
-                          h4(class = "custom-text", "There is no 'I' in the team but there is in WIN"),
-                          h4("MJ"),
-                          width = 18,
-                        )
+                         box(
+                           title = "Welcome to NBA DashBoard",
+                           status = "primary",
+                           solidHeader = TRUE,
+                           collapsible = FALSE,
+                           img(src = "MJ.jpg", height = 550, width = "100%"),
+                           h4(class = "custom-text", "There is no 'I' in the team but there is in WIN"),
+                           h4("MJ"),
+                           width = 18,
+                         )
                   ),
                   column(4,
-                        box(
-                          title = " ",
-                          status = "primary",
-                          solidHeader = TRUE,
-                          collapsible = FALSE,
-                          width = 15,
-                          fluidRow(
-                            column(12,
-                                   div(class = "center-content",
-                                   img(src = "dashboard_logo_s.png", class = c("center-image","custom-margin"), width = "70%"),
-                                   
-                                   )
-                                   ),
-                            h4(class = "txt-margin", "This is a simple dashboard for National Basketball Association fans. You can find here information about NBA history, teams, players and more."),
-                            fluidRow(
-                              
-                              column(6,
-                                     img(src = "nba_west_dark.png", class = c("center-image","image-margin"), width = "60%"),
-                                     
-                              ),
-                              column(6,
-                                     img(src = "nba_east_dark.png", class = c("center-image","image-margin"), width = "60%"),
-                                     
-                              )
-                            )
-                          
-                  
-                          )
-                         
-                      
-                          
-                        )
+                         box(
+                           title = " ",
+                           status = "primary",
+                           solidHeader = TRUE,
+                           collapsible = FALSE,
+                           width = 15,
+                           fluidRow(
+                             column(12,
+                                    div(class = "center-content",
+                                        img(src = "dashboard_logo_s.png", class = c("center-image","custom-margin"), width = "70%"),
+                                        
+                                    )
+                             ),
+                             h4(class = "txt-margin", "This is a simple dashboard for National Basketball Association fans. You can find here information about NBA history, teams, players and more."),
+                             fluidRow(
+                               
+                               column(6,
+                                      img(src = "nba_west_dark.png", class = c("center-image","image-margin"), width = "60%"),
+                                      
+                               ),
+                               column(6,
+                                      img(src = "nba_east_dark.png", class = c("center-image","image-margin"), width = "60%"),
+                                      
+                               )
+                             )
+                             
+                             
+                           )
+                           
+                           
+                           
+                         )
                          
                   )
                 ),
@@ -238,9 +241,46 @@ shinyUI(
                   )
                 )
         ),
+        
+        
+        
+        
         tabItem(tabName = "players",
-                h1("Players dashboard")
-        ),
+                fluidRow(
+                  theme = shinytheme("cyborg"),
+                  column(width = 12, class = "col-custom",
+                         actionButton("show_grid", "Show All Players Grid"),
+                         actionButton("compare_players", "Compare 2 Players"),
+                         conditionalPanel(
+                           condition = "input.show_grid > input.compare_players",
+                           selectInput("team", "Select a team:", c("Show All", unique(players_common_active$team_name))),
+                           textInput("search", "Search player:"),
+                           uiOutput("players_grid")
+                         ),
+                         conditionalPanel(
+                           condition = "input.compare_players > input.show_grid",
+                           selectInput("team1", "Select team for first player:", unique(players_common_active$team_name)),
+                           selectInput("team2", "Select team for second player:", unique(players_common_active$team_name)),
+                           uiOutput("player1"),
+                           uiOutput("player2"),
+                           actionButton("compare", "Compare"),
+                           uiOutput("comparison")
+                         )
+                         
+                         
+                  )
+                )
+        )
+        
+        
+        
+        
+        ,
+        
+        
+        
+        
+        
         tabItem(tabName = "qa",
                 h1("FQA"),
                 h4("Questions you asked most recently:"),
