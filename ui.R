@@ -242,65 +242,70 @@ shinyUI(
                 )
         ),
         tabItem(tabName = "players",
+                h1("National Basketball Association League Teams"),
                 fluidRow(
                   theme = shinytheme("cyborg"),
-                  column(width = 12, class = "col-custom",
-                         actionButton("show_grid", "Show All Players Grid"),
+                  column(width = 12, class = "col-costum",
+                         actionButton("show_grid_players", "Show All Players Grid"),
                          actionButton("compare_players", "Compare 2 Players"),
-                         actionButton("details", "Details")
+                         actionButton("details", "Details"),
+                         hidden(
+                           div(id = "show_grid_players_div",
+                               selectInput("team", "Select a team:", c("Show All", unique(players_common_active$team_name))),
+                               textInput("search", "Search player:"),
+                               uiOutput("players_grid")
+                           )
+                         ),
+                         hidden(
+                           div(id = "compare_players_div",
+                               fluidRow(
+                                 column(width = 4, 
+                                        selectInput("team1", "Select team for first player:", unique(players_common_active$team_name)),
+                                        selectInput("player1", "Select first player:", NULL),
+                                        selectInput("team2", "Select team for second player:", unique(players_common_active$team_name)),
+                                        selectInput("player2", "Select second player:", NULL),
+                                        actionButton("compare", "Compare")
+                                 ),
+                                 column(width = 8, 
+                                        uiOutput("comparison"),
+                                        DT::dataTableOutput("comparison_table")
+                                    
+                                 )
+                               )
+                           )
+                         ),
+                         hidden(
+                           div(id ="details_div",
+                               fluidRow(
+                                 column(width = 6, class = "col-custom",
+                                        div(
+                                          h3("Active and Nonactive Players", class = "centered-subtitle"),
+                                          plotlyOutput("player_donut"),
+                                          br()
+                                        )
+                                 ),
+                                 column(width = 6, class = "col-custom",
+                                        div(
+                                          h3("Active and Nonactive Teams", class = "centered-subtitle"),
+                                          plotlyOutput("team_donut"),
+                                          br()
+                                        )
+                                 )
+                               )
+                           )
+                         )
                   )
-                ),
-                fluidRow(
-                  column(width = 12, class = "col-custom",
-                         conditionalPanel(
-                           condition = "input.show_grid >= input.compare_players && input.details == 0",
-                           selectInput("team", "Select a team:", c("Show All", unique(players_common_active$team_name))),
-                           textInput("search", "Search player:"),
-                           uiOutput("players_grid")
-                         )
-                  ),
-                  column(width = 6, class = "col-custom",
-                         conditionalPanel(
-                           condition = "input.compare_players == 1 && input.show_grid == 0 && input.details == 0",
-                           selectInput("team1", "Select team for first player:", unique(players_common_active$team_name)),
-                           selectInput("player1", "Select first player:", NULL),
-                           selectInput("team2", "Select team for second player:", unique(players_common_active$team_name)),
-                           selectInput("player2", "Select second player:", NULL),
-                           actionButton("compare", "Compare")
-                         )
-                  ),
-                  column(width = 6, class = "col-custom",
-                         conditionalPanel(
-                           condition = "input.compare_players == 1 && (input.show_grid == 0 && input.details == 0)",
-                           uiOutput("comparison"),
-                           DT::dataTableOutput("comparison_table")
-                           
-                         )
-                  )),
-                fluidRow(
-                  column(width = 6, class = "col-custom",
-                         conditionalPanel(
-                           condition = "input.compare_players == 0 && input.show_grid == 0 && input.details == 1",
-                           h3("Active and Nonactive Players", class = "centered-subtitle"),
-                           plotlyOutput("player_donut"),
-                           
-                           br()
-                           
-                         )
-                  ),
-                  column(width = 6, class = "col-custom",
-                         conditionalPanel(
-                           condition = "input.compare_players == 0 && input.show_grid == 0 && input.details == 1",
-                           h3("Active and Nonactive Teams", class = "centered-subtitle"),
-                           plotlyOutput("team_donut"),
-                           br()                  
-                  )
-                               
-        )))
-        
-        
+                )
+        )
         
         ,
+                
+        
+        
+        
+        
+        
+     
         
         
         

@@ -166,6 +166,7 @@ server <- function(input, output, session) {
   output$player1 <- renderUI({
     selectInput("player1", "Select first player to compare:", 
                 players_common_active[players_common_active$team_name == input$team1, ]$display_first_last)
+    
   })
   
   output$player2 <- renderUI({
@@ -309,19 +310,64 @@ server <- function(input, output, session) {
   
   observeEvent(input$compare_players, {
     view("compare")
-  }) 
+    
+    
+    player1_data <- player_comparison[players_common_active$display_first_last == input$player1, ]
+    player2_data <- player_comparison[players_common_active$display_first_last == input$player2, ]
+    
+    
+    comparison_data  <- data.frame(
+      Attribute = names(player1_data),
+      Player1 = as.character(player1_data[1, ]),
+      Player2 = as.character(player2_data[1, ])
+    )
+    # Render the combined data table
+    output$comparison_table <- DT::renderDataTable({
+      DT::datatable(comparison_data, 
+                    options = list(
+                      searching = FALSE,  # Disable search
+                      lengthMenu = list(c(5, 10, -1), c('5', '10', 'All')),  # Remove length menu
+                      pageLength = 10,  # Set default page length
+                      dom = 't'  # Display only table without other controls
+                      ))
+    })
+    
+  })
+  
+  
+  observeEvent(input$show_grid_players, {
+    hide("compare_players_div")
+    hide("details_div")
+    show("show_grid_players_div")
+  })
+  
+  observeEvent(input$compare_players, {
+    hide("show_grid_players_div")
+    hide("details_div")
+    show("compare_players_div")
+  })
+  
+  observeEvent(input$details, {
+    hide("show_grid_players_div")
+    hide("compare_players_div")
+    show("details_div")
+  })
   
 
   
   observe({
     updateSelectInput(session, "player1", choices = unique(players_common_active$display_first_last[players_common_active$team_name == input$team1]))
+    
+    
+   
   })
   
   observe({
     updateSelectInput(session, "player2", choices = unique(players_common_active$display_first_last[players_common_active$team_name == input$team2]))
+    
   })
   
-  # Observe the compare button click
+  
   observeEvent(input$compare, {
 
     player1_data <- player_comparison[players_common_active$display_first_last == input$player1, ]
@@ -344,10 +390,10 @@ server <- function(input, output, session) {
                       ))
     })
   })
-  players <- read.csv("csv files/player.csv", header = TRUE, stringsAsFactors = FALSE)
-  team_history <- read.csv("csv files/team_history.csv", header = TRUE, stringsAsFactors = FALSE)
+  #players <- read.csv("csv files/player.csv", header = TRUE, stringsAsFactors = FALSE)
+  #team_history <- read.csv("csv files/team_history.csv", header = TRUE, stringsAsFactors = FALSE)
   
-  players$is_active <- as.logical(players$is_active)
+  #players$is_active <- as.logical(players$is_active)
   
   player_summary <- players %>%
     mutate(status = ifelse(is_active == 1, "Active players", "Not Active players")) %>%
