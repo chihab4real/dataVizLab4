@@ -64,7 +64,8 @@ shinyUI(
         menuItem(HTML('<i class="fas fa-history"></i> History'), tabName = "history"),
         menuItem(HTML('<i class="fas fa-users"></i> Teams'), tabName = "teams"),
         menuItem(HTML('<i class="fas fa-basketball-ball"></i> Players'), tabName = "players"),
-        menuItem(HTML('<i class="fa-solid fa-question"></i> Help'), tabName = "qa")
+        menuItem(HTML('<i class="fa-solid fa-question"></i> Help'), tabName = "qa"),
+        tags$li(class = "treeview", tags$a(href='https://www.put.poznan.pl/', tags$span(class="logo", tags$img(src = "pp_logo.png", height = "100px"))))
       )
     ),
     dashboardBody(
@@ -142,6 +143,12 @@ shinyUI(
             padding: 10px;
             text-align: center;
           }
+          
+          .sidebar-menu > li:last-child {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
         "))
       ),
       tabItems(
@@ -199,7 +206,12 @@ shinyUI(
                 fluidRow(
                   column(12,
                          div(class = "footer",
-                             h4("This application was created by:", strong(" Wiktoria Szarzyńska "), "& ", strong(" ChihabEddine Zitouni ")),
+                             tags$h4("This application was created by: ",
+                                     tags$strong(tags$a(href = "https://github.com/Wikusia-s/", "Wiktoria Szarzyńska")), "  &  ", "  ",
+                                     tags$strong(tags$a(href = "https://github.com/chihab4real/", "ChihabEddine Zitouni"))
+                                     )
+                             
+                             #h4("This application was created by:", strong(" Wiktoria Szarzyńska "), "& ", strong(" ChihabEddine Zitouni "))
                          )
                   )
                 )
